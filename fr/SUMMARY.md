@@ -1,5 +1,3 @@
-Sommaire
-
 * [Jirac](section1/README.md)
     * [Philosophie](section1/introduction.md)
     * [Installation](section1/installation.md)
