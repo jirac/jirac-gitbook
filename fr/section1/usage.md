@@ -1,23 +1,6 @@
 # Usage
  Cette partie décrit les usages courants que l'on peut avoir avec jirac.
 
-## Format
-Le format est pour le moment non paramètrable et suit le template suivant: 
-
-*Project's name*
-* branche   : origin/branche
-* version   : 1.0-SNAPSHOT
-* commit(s) :
-** http://somerepository.com/project/master/commit/83e9751c78d9d52bc1d1ec79e1d75f321ef05907**
-** http://somerepository.com/project/master/commit/5c6337a7eb18033d57184b8cd5d484c8d79c06f4**
-** http://somerepository.com/project/master/commit/0b8b1e91177a1d064637504474e23733a7077199**
-* Description: 
-
-First commit's description  
-Second commit's description  
-Third commit's description  
-
-
 ## jirac
 Le cas d'usage classique est de simplement lancer la commande 'jirac' depuis un *projet git+maven*.  
 Il est à noter que la commande ne se lance pas nécessairement depuis le répertoire racine d'un projet mais peut tout aussi être invoqué depuis 
@@ -55,3 +38,47 @@ Pour générer un commentaire à partir des commits lié au *ticket_foo* on lanc
 *jira -g 'ticket_foo'*
 
 Tous les commits contenant *ticket_foo* dans leur short description seront alors utilisés pour générer le commentaire.
+
+## jirac -p [0|1]
+L'option **--print_mode** permet de modifier la partie déscription du commentaire généré.
+Les commentaires suivant sont générés à partir de trois même commits.  
+### Mode par défaut `jirac -p 0`
+*fooProject*
+* branche   : origin/grep
+* version   : 1.0-SNAPSHOT
+* commit(s) :
+** http://somerepository.com/svn_repo/trunk/commit/83e9751c78d9d52bc1d1ec79e1d75f321ef05907**
+** http://somerepository.com/svn_repo/trunk/commit/5c6337a7eb18033d57184b8cd5d484c8d79c06f4**
+** http://somerepository.com/svn_repo/trunk/commit/0b8b1e91177a1d064637504474e23733a7077199**
+* Description:
+Added new grep option  
+Shift parameter for print_mode \\  
+\\
+Previouly we didn't shit the value of print_mode option.
+Thus, we couldn't add option following the print_mode
+User with no pushed commit cannot generate comment \\  
+\\
+Previously, when someone tried to generate comments while he
+didn't have pushed commit he was redirected on the EDITOR with
+no commit to choose. A stalemate. \\  
+\\
+Now we prevent this by controling the existence of commits of his. \\
+
+### Mode centré sur le commit `jirac -p 1`
+*fooProject*
+* branche   : origin/grep
+* version   : 1.0-SNAPSHOT
+* User with no pushed commit cannot generate comment
+** http://somerepository.com/svn_repo/trunk/commit/0b8b1e91177a1d064637504474e23733a7077199**
+Previously, when someone tried to generate comments while he
+didn't have pushed commit he was redirected on the EDITOR with
+no commit to choose. A stalemate. \\
+\\
+Now we prevent this by controling the existence of commits of his.
+* Shift parameter for print_mode
+** http://somerepository.com/svn_repo/trunk/commit/5c6337a7eb18033d57184b8cd5d484c8d79c06f4**
+Previouly we didn't shit the value of print_mode option.
+Thus, we couldn't add option following the print_mode
+* Added new grep option
+** http://somerepository.com/svn_repo/trunk/commit/83e9751c78d9d52bc1d1ec79e1d75f321ef05907**
+
