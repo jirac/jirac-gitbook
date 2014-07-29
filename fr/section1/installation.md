@@ -5,7 +5,7 @@ Assurez-vous d'avoir :
 
 1. installé Git (avec Git Bash sous Windows) 
 1. installé XMLStarlet dont vous trouverez une tarball sur ce [lien](http://xmlstar.sourceforge.net/download.php) ou via votre package manager.
-1. cloné ce repo ;) et inclus le répertoire dans votre `PATH`
+1. cloné ce  [repo](https://github.com/jirac/jirac "jirac repository") et inclus le répertoire dans votre `PATH`
 1. définit une variable d'environnement `VISUAL` ou `EDITOR` (ex: "vim")
 
 ### Utilisateurs Linux
